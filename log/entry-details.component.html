@@ -1,0 +1,49 @@
+<div class = 'panel panel-primary' *ngIf='entry'>
+    <div class='panel-heading' style='font-size:large'>
+        {{pageTitle + ': ' + entry.entryName}}
+    </div>
+
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='lbl col-md-3'>Name:</div>
+                    <div class='col-md-6'>{{entry.entryName}}</div><br>
+                </div>
+                <div class='row'>
+                    <div class='lbl col-md-3'>Console:</div>
+                    <div class='col-md-6'>{{entry.entryConsole}}</div><br>
+                </div>
+                <div class='row'>
+                    <div class='lbl col-md-3'>Description:</div>
+                    <div class='col-md-6'>{{entry.description}}</div><br>
+                </div>
+                <div class='row'>
+                    <div class='lbl col-md-3'>Date Logged:</div>
+                    <div class='col-md-6'>{{entry.entryDate}}</div><br>
+                </div>
+                <div class='row'>
+                    <div class='lbl col-md-3'>Rating:</div>
+                    <div class='col-md-6'>
+                        <lm-rating (ratingClicked) = 'onRatingClicked($event)'
+                                [rating] = 'entry.entryRating'></lm-rating>
+                    </div><br>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <img class='center-block img-responsive' 
+                     [style.width.px]='200' 
+                     [style.margin.px]='2' 
+                     [src]='entry.imageUrl'
+                     [title]='entry.entryName'>
+            </div>
+        </div>
+    </div>
+
+    <div class = 'panel-footer'>
+        <a class = 'btn btn-default' (click) = 'onBack()' style = 'width:80px'>
+            <i class = 'glyphicon glyphicon-chevron-left'></i> Back 
+        </a>
+    </div>
+</div>

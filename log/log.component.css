@@ -1,0 +1,23 @@
+thead {
+    color: #991b2a;
+}
+
+.panel-heading {
+    background-color: #991b2a;
+}
+
+.btn-primary {
+    background-color: #991b2a;
+    border-color: #b74e5b;
+ 
+}
+
+.btn-primary:active {
+    background-color: #b74e5b;
+    border-color: #b74e5b;
+ 
+}
+
+.panel-primary {
+    border-color: #991b2a;
+}

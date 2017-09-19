@@ -1,0 +1,57 @@
+<div class = 'panel panel-primary'>
+    <div class = 'panel-heading'>
+        {{pageTitle}}
+    </div>
+    <div class = 'panel-body'>
+        <div class = 'row'>
+            <div class = 'col-md-4'>
+                <input placeholder = 'Search' type = 'text' 
+                 [(ngModel)] = 'listFilter'/>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-md-6' *ngIf = 'listFilter'>
+                Displaying Results: {{listFilter}}
+            </div>
+        </div>
+        <div class = 'table responsive'>
+            <table class = 'table'
+                    *ngIf = 'entries && entries.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class = 'btn btn-primary'
+                             (click) = 'toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Images
+                            </button>
+                        </th>
+                        <th>Entry</th>
+                        <th>Console</th>
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                    <tr *ngFor = 'let entry of entries | entryFilter: listFilter'>
+                        <td>
+                            <img [src] = 'entry.imageUrl' 
+                            [title] = 'entry.entryName'
+                            [style.width.px] = 'imageWidth'
+                            [style.margin.px] = 'imagemMargin'
+                            *ngIf = 'showImage'>
+                        </td>
+                        <td><a [routerLink] = "['/log/entry', entry.entryId]">{{entry.entryName}}</a></td>
+                        <td>{{entry.entryConsole}}</td>
+                        <td>{{entry.entryDate}}</td>
+                        <td><lm-rating (ratingClicked) = 'onRatingClicked($event)'
+                                [rating] = 'entry.entryRating'></lm-rating></td>
+                        <td>{{entry.entryNote}}</td>
+                    </tr>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>            
+    </div>
+</div>
+    

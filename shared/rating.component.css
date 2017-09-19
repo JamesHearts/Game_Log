@@ -1,0 +1,10 @@
+.crop {
+    overflow: hidden;
+}
+div {
+    cursor: pointer;
+}
+
+.glyphicon {
+    color: #f44242
+}
